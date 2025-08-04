@@ -1,7 +1,12 @@
 public class Program {
     public static void main(String[] args) throws Exception {
 
-        int mark = 100;
+        int mark = 10;
+
+        if (mark < 1 || mark > 100) {
+            System.out.println("Error: marks must be between 1..100");
+            return;
+        }
 
         if (mark < 50) {
             System.out.println("You have failed your exam.");
