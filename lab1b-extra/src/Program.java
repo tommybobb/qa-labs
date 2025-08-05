@@ -27,6 +27,8 @@ public class Program {
 
     private static double getAirportTaxAmount(double totalChargeAfterFee) {
 
+        // Assumes airport tax is on the converted amount + service fee?
+
         String customerType = "V";
         double airportTax = 0.1;
         if(customerType.equals("V")) {
@@ -38,6 +40,8 @@ public class Program {
 
     private static double getServiceFeeAmount(double convertedAmount) {
         
+        // Assumes service fee is on the converted amount?
+
         double serviceFee = 0.05;
 
         if (convertedAmount >= 100){
@@ -51,19 +55,18 @@ public class Program {
     private static double convertCurrency(int amountOfGBP, String currencyToConvertTo) {
         double convertedAmount = 0.0;
         
-            switch (currencyToConvertTo){
+        switch (currencyToConvertTo){
 
             case "USD":
                 convertedAmount = amountOfGBP * 1.25;
                 break;
+
             case "EUR":
                 convertedAmount = amountOfGBP * 1.15;
                 break;
-            case "JPY":
+                
+            default: //JPY default - already validated in input
                 convertedAmount = amountOfGBP * 180.5;
-                break;
-            default:
-                System.out.println("Invalid currency selection.");
 
         }
         return convertedAmount;
@@ -77,6 +80,7 @@ public class Program {
             System.out.println("Invalid input. Please enter a valid number.");
             s.next();
         }
+        
         int currencyAmount = s.nextInt();
         s.nextLine();
 
@@ -99,7 +103,6 @@ public class Program {
         return input;
 
     }
-
 
     private static void closeScanner() {
         if (s != null) {
