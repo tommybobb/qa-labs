@@ -43,8 +43,6 @@ public class Program {
         // Assumes airport tax is on the converted amount + service fee?
         // Could probably create a class for the customer type and airport tax rate
 
-        
-
 
         double airportTax = 0.1;
         if(customerType.equals("V")) {
