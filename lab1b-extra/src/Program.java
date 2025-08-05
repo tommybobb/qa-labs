@@ -36,8 +36,6 @@ public class Program {
         return totalChargeAfterFee * airportTax;
     }
 
-
-
     private static double getServiceFeeAmount(double convertedAmount) {
         
         double serviceFee = 0.05;
@@ -75,7 +73,6 @@ public class Program {
 
         System.out.println("How much GBP do you wish to convert?");
 
-        // Error handling for integer input
         while (!s.hasNextInt()){
             System.out.println("Invalid input. Please enter a valid number.");
             s.next();
@@ -93,7 +90,6 @@ public class Program {
 
         String input = s.nextLine().trim().toUpperCase();
 
-        // Error handling for integer input
         while (!input.equals("USD") && !input.equals("EUR") && !input.equals("JPY")) {
 
             System.out.println("Invalid input. Please enter a valid currency.");

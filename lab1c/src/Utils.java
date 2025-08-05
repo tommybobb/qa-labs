@@ -22,6 +22,20 @@ public class Utils {
         return s.nextLine();
     }
 
+    public int getWeightInPounds() {
+
+        System.out.println("What is the weight in pounds?");
+
+        while (!s.hasNextInt()){
+            System.out.println("Invalid input. Please enter a valid number.");
+            s.next();
+        }
+        int result = s.nextInt();
+        s.nextLine();
+
+        return result;
+    }
+
     public void convertInputToStonesPounds(int pounds){
 
         int stones = pounds / 14;
