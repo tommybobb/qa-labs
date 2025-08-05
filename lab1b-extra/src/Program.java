@@ -16,7 +16,9 @@ public class Program {
 
 
     public static void main(String[] args) {
-        
+    // Customer type, for example
+        String customerType = "S";
+
         int amountOfGBP = getCurrencyAmount();
 
         String currencyToConvertTo = getCurrencyAmountV2();
@@ -26,7 +28,7 @@ public class Program {
         double serviceFeeAmount = getServiceFeeAmount(convertedAmount);
         double totalChargeAfterFee = convertedAmount + serviceFeeAmount;
 
-        double airportTaxAmount = getAirportTaxAmount(totalChargeAfterFee);
+        double airportTaxAmount = getAirportTaxAmount(totalChargeAfterFee, customerType);
         double totalCharge = totalChargeAfterFee + airportTaxAmount;
 
         System.out.println("Converted " + amountOfGBP + " GBP to " + currencyToConvertTo + ": " + (int)convertedAmount);
@@ -36,13 +38,12 @@ public class Program {
         closeScanner();
     }
 
-    private static double getAirportTaxAmount(double totalChargeAfterFee) {
+    private static double getAirportTaxAmount(double totalChargeAfterFee, String customerType) {
 
         // Assumes airport tax is on the converted amount + service fee?
         // Could probably create a class for the customer type and airport tax rate
 
-        // Customer time, for example
-        String customerType = "S";
+        
 
 
         double airportTax = 0.1;
