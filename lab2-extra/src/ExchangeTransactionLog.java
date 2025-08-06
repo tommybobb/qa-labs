@@ -24,7 +24,6 @@ public class ExchangeTransactionLog {
 
     public void displayLogInfo() {
         System.out.println(".....................");
-
         System.out.println("Transaction Log ID: " + id);
         System.out.println("Customer: " + transaction.getCustomerName());
         System.out.println("Original Amount: £" + String.format("%.2f", transaction.getGbpAmount()));

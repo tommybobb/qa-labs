@@ -1,16 +1,6 @@
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 
 public class Program {
-
-    public List<ExchangeTransactionLog> transactionLogs;
-
-    public Program() {
-        this.transactionLogs = new ArrayList<ExchangeTransactionLog>();
-    }
 
     public static void main(String[] args)  {
 
