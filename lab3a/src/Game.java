@@ -36,11 +36,13 @@ public class Game extends Canvas {
 
                 
         frame.addWindowListener(new WindowAdapter() {
-        @Override
-        public void windowClosing(WindowEvent e) {
-            t.cancel();
-            tt.cancel();
-        }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                t.cancel();
+                tt.cancel();
+            }
+            
         });
     }
 
