@@ -1,7 +1,7 @@
 import java.awt.*;
-import java.util.List;
 import java.awt.event.*;
 import java.util.*;
+import java.util.List;
 import java.util.Timer;
 import javax.swing.*;
 
@@ -9,7 +9,7 @@ public class Game extends Canvas {
 // create an array of 3 balls 
 // call this array balls
     Random rand = new Random();
-    List<Shape> shapes = new ArrayList<Shape>();
+    List<Shape> shapes = new ArrayList<>();
 
     Game() {
         Shape.setWorld(400  , 400);
