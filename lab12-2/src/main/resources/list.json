@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Bob",
+    "age": 21,
+    "subjects": [
+      "Java",
+      "C#",
+      "Network"
+    ]
+  },
+  {
+    "name": "Fred",
+    "age": 32,
+    "subjects": [
+      "Java",
+      "C#",
+      "Network"
+    ]
+  },
+  {
+    "name": "Wilma",
+    "age": 26,
+    "subjects": [
+      "Java",
+      "C#",
+      "Network"
+    ]
+  }
+]
