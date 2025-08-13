@@ -8,12 +8,6 @@
     <artifactId>lab11</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!-- <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <maven.test.skip>true</maven.test.skip>
-    </properties> -->
-
     <dependencies>
 
         <dependency>
@@ -22,12 +16,6 @@
             <version>4.13.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.13.4</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
 </project>

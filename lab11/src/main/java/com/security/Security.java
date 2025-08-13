@@ -3,7 +3,7 @@ package com.security;
 public class Security {
 	public boolean login(String userId, String password) {
 			
-        String errorMessage;
+        String errorMessage = "";
 
         // userId must not be null or spaces. Must be 8 chars minimum.
         // password must contain a digit and an upper case char
@@ -19,10 +19,12 @@ public class Security {
         }
         else if (!validatePassword(password)) {
             errorMessage = "Password must be min 8 chars long with an uppercase and a number";
-            return false;
+            
+            throw new IllegalArgumentException(errorMessage);
+            //return false;
         }
         else {
-            errorMessage = "";
+            errorMessage = errorMessage;
             return true;
         }
     }
