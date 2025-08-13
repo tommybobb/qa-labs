@@ -41,7 +41,6 @@ public class TestLogin {
         boolean actual = security.login(userId, password);
         boolean expected = false;
         assertEquals(expected, actual);
-        // assertFalse(actual);   // can also use this assert
     }
 
     @Test
@@ -50,7 +49,6 @@ public class TestLogin {
         boolean actual = security.login(userId, password);
         boolean expected = false;
         assertEquals(expected, actual);
-        // assertFalse(actual);   // can also use this assert
     }
 
     @Test
@@ -59,14 +57,11 @@ public class TestLogin {
         boolean actual = security.login(userId, password);
         boolean expected = false;
         assertEquals(expected, actual);
-        // assertFalse(actual);   // can also use this assert
     }
 
     @Test
 	public void testLoginWithUserIdAndShortPassword() {
         String userId = "Tom", password = "Pass";
-        // boolean actual = security.login(userId, password);
-        // boolean expected = false;
 
 
         assertThrows(IllegalArgumentException.class, () -> {
