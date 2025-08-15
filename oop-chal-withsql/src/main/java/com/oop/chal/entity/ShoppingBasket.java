@@ -1,12 +1,5 @@
-package com.oop.chal;
+package com.oop.chal.entity;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,10 +7,17 @@ public class ShoppingBasket {
     private int id;
     private List<ShoppingBasketItem> items;
     private LocalDateTime savedTime;
+    private boolean processed;
+    private String owner;
+
+    public ShoppingBasket() {
+
+    }
 
     public ShoppingBasket(List<ShoppingBasketItem> items, LocalDateTime savedTime) {
         this.items = items;
         this.savedTime = savedTime;
+        this.processed = false;
     }
 
     public int getId() {return id;}
@@ -26,11 +26,15 @@ public class ShoppingBasket {
     public void setItems(List<ShoppingBasketItem> items) { this.items = items; }
     public LocalDateTime getSavedTime() { return savedTime; }
     public void setSavedTime(LocalDateTime savedTime) { this.savedTime = savedTime; }
+    public boolean getProcessed() {return processed;}
+    public void setProcessed(boolean processed) {this.processed = processed;}
+    public String getOwner() {return owner;}
+    public void setOwner(String owner) {this.owner = owner;}
 
     public void addItem(Product product, int quantity){
         
         for (ShoppingBasketItem item : items) {
-            if (item.getProduct().equals(product)) {
+            if (item.getId() == product.getId()) {
                 item.setQuantity(item.getQuantity() + quantity);
                 return;
             }
@@ -79,33 +83,7 @@ public class ShoppingBasket {
     }
 
 
-    public int insertBasketIntoDb(ShoppingBasket basket) throws SQLException {
-        String sql = "INSERT INTO ShoppingBaskets (Owner, SavedTime, Processed) VALUES (?, ?, ?)";
-        
-        try (Connection conn = DriverManager.getConnection(
-                DatabaseConfig.getUrl(), 
-                DatabaseConfig.getUsername(), 
-                DatabaseConfig.getPassword());
-             PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            
-            pstmt.setString(1, "bob");
-            pstmt.setTimestamp(2, Timestamp.valueOf(basket.getSavedTime()));
-            pstmt.setBoolean(3, false);
-            
-            int rowsAffected = pstmt.executeUpdate();
-            
-            if (rowsAffected > 0) {
-                try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
-                    if (generatedKeys.next()) {
-                        int generatedId = generatedKeys.getInt(1);
-                        basket.setId(generatedId);
-                        return generatedId;
-                    }
-                }
-            }
-            return -1;
-        }
-    }
+    
 
     
 
